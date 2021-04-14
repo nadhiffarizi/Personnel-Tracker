@@ -7,7 +7,7 @@ const int httpsPort = 443;
 /*create wificlientsecure object*/
 WiFiClientSecure client;
 /*spreadsheet script ID*/
-String GAS_ID = "AKfycbxzTne5X96-T74e9g0VbCYG0h-bNdUT3QUr6O3GLUXkSfzyaBxyAZbakgYIAVK_7fLc"; //--> spreadsheet script ID
+String GAS_ID = "<Fill with script ID from google-sheet>"; //--> spreadsheet script ID
 
 
 String FormattedString(String x)

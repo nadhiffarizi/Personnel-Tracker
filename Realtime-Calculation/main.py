@@ -11,8 +11,6 @@ def stream():
         # message value and key are raw bytes -- decode if necessary!
         # e.g., for unicode: `message.value.decode('utf-8')`
         transformed_data = parse_data(message.value.decode('utf-8'))
-        # print(message.value.decode('utf-8'))
-        # print(message.value.decode('utf-8'))
 
 
 
@@ -37,7 +35,6 @@ def parse_data(msg):
 def send_data(data_to_send):
     '''Send data using python requests to nifi aghnia'''
     # print("Data to send: ", data_to_send)
-    data_json = json.dumps(data_to_send)
     url = 'http://192.168.42.10:7001/contentListener'
     response = requests.post(url, json=data_to_send)
     print(response.status_code)

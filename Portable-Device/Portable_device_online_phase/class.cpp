@@ -164,9 +164,7 @@ bool AccessPoint::connectSSID(const char* ssid_search){
       Serial.println(pass);
       is_connected = true;
       return true;
-    }
-      
-    
+    } 
   }
 }
 
@@ -268,29 +266,8 @@ bool DataAcquisition::getRSSI(JsonObject* dataNow){
 
       DateTime now = rtc.now();
       char buf[] = "YYMMDD-hh:mm:ss";
-      // Serial.println(now.toString(buf));
       (*dataNow)["time"] = now.toString(buf);
-      // return true;
-      //push timestamp data to dataNow
-      // if(totalData == 4){
-      //   String _timeNow;
-      //   DateTime now = rtc.now();
-      //   char buf[] = "YYMMDD-hh:mm:ss";
-      //   Serial.println(now.toString(buf));
-      //   (*dataNow)["time"] = now.toString(buf);
-
-      //   //at this point, data acquisition succeed and return
-      //   return true;
-      // }
-      
     }
-    // else{
-    //   Serial.println("Data is not valid");
-      
-    //   //if data is not valid, then reset the Json and return false
-      
-    //   return false;
-    // }
   }
 }
 
@@ -301,12 +278,11 @@ bool DataAcquisition::statusSend(){
 bool DataAcquisition::sendDataNow(JsonObject* dataNow){
 
   /* this function is for push received data to apache nifi, http://<host-address>:<PORT-number>/contentListener  */
-  const char* server = "http://192.168.100.13:7001/contentListener"; //IP may vary
+  const char* server = "http://<host-address>:<port-number>/<app-name>"; //IP may vary
 
   //http object
   HTTPClient http;
 
-  // String message = "{\"bejo\":-56, \"beji\": -90, \"haha\": -60, \"hihi\: -70}";
   String msg;
   (*dataNow).printTo(msg);
   String fullRequestHTTP = String(server);
@@ -356,7 +332,6 @@ void Backup::getBackupData(JsonObject* dataNow){
     char c = read_byte;
     //Serial.println(data);
     if(c == ';'){
-      // "{"skp":-20,"Ap2":-90,"Ap3":-50,"timeNow":"210201-18:06:59"};"
       //create Json buffer and store the first record using (*dataNow)
       
       JsonObject& root = jsonBuffer.parseObject(data);

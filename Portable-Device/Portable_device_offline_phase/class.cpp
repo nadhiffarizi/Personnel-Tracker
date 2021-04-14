@@ -96,12 +96,7 @@ bool AccessPoint::connectSSID(const char* ssid_search){
     return false;
   }
   else{
-    // String _ssid = "skp";      
-    // String _password = "iburia142";
-    // Serial.println(ssid);
-    // Serial.println(ssid.length());
-    // Serial.println(pass);
-    // Serial.println(pass.length());
+ 
     WiFi.begin(ssid, pass);
     delay(delay_WiFi);
     long last_millis = millis();
@@ -222,7 +217,7 @@ bool DataAcquisition::getRSSI(JsonObject* dataNow){
   //search if the scanned network match the SSIDmeasure list
   uint16_t totalData = 0;
   
-  String BSSID_eduroam = "54:EC:2F:15:59:A8";
+  String BSSID_eduroam = "54:EC:2F:15:59:A8"; //depends on particular AP to measure
 
   for(int i=0; i<n; i++){
     Serial.print(WiFi.SSID(i));

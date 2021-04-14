@@ -1,3 +1,4 @@
 ssid1;pass1
 ssid2;pass2
 ssid3;pass3
+ssid4;pass4

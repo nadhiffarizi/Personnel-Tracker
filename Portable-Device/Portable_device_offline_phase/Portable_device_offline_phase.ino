@@ -62,11 +62,6 @@ void loop() {
     //send data to spreadsheet
     sendData(&dataNow, &is_the_first_time);
     
-    // dataNow["AP1"] = 0;
-    // dataNow["AP2"] = 0;
-    // dataNow["AP3"] = 0;
-    // dataNow["AP4"] = 0;
-    // dataNow["Ruang KP BME"] = 0;
     //update last millis
     lastMillis = millis();
 
@@ -85,5 +80,3 @@ void loop() {
   
   delay(50);
 }
-
-
